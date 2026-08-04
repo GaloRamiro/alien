@@ -100,6 +100,27 @@ public class Alien {
 
 		precioTotal = precioCuerpo + (numeroBrazos + numeroPies) * precioExtremidad + numeroOjos * precioOjo;
 	}
+	//agregar ojos
+	public boolean agregarOjos(int cantidad) {
+
+		int maximoOjos;
+
+		if (tamanio >= 5 && tamanio <= 10) {
+			maximoOjos = 3;
+		} else if (tamanio > 10 && tamanio <= 20) {
+			maximoOjos = 5;
+		} else {
+			maximoOjos = 7;
+		}
+
+		if (numeroOjos + cantidad <= maximoOjos) {
+			numeroOjos += cantidad;
+			calcularPrecioTotal();
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 	public void imprimir() {
 		System.out.println("========== ALIEN ==========");
